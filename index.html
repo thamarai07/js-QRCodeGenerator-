@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="qr__container">
+      <p>Enter Your Url</p>
+      <input type="text" class="qr__input" />
+      <img src="" alt="" id="qr__img" />
+      <button class="qr__btn" onclick="generateQr()">Create Qr</button>
+    </div>
+
+    <script>
+      const url =
+        "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+
+      const inputs = document.querySelector(".qr__input");
+      const qr__img = document.querySelector("#qr__img");
+
+      function generateQr() {
+        qr__img.src = url + inputs.value;
+
+        if(qr__img.src){
+            qr__img.style.display = "block";
+            inputs.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
